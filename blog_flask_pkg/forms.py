@@ -8,7 +8,7 @@ class Reg(FlaskForm):
     email = EmailField('Email',validators=[DataRequired(), Email()])
     passw = PasswordField('password',validators=[DataRequired()])
     confirm_passw = PasswordField('Confirm Password',validators=[DataRequired(), EqualTo('passw',message="password mismatch")])
-    submit = SubmitField('Sign_Up')
+    submit = SubmitField('Sign Up')
 
     def validate_uname(self,uname):
         user = User.query.filter_by(username=uname.data).first()
