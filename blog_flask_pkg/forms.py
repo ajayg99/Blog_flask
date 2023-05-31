@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField,SubmitField, BooleanField, EmailField
+from wtforms import StringField, PasswordField,SubmitField, BooleanField, EmailField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, InputRequired, ValidationError
 from blog_flask_pkg.models import User
 from flask import flash
@@ -32,7 +32,7 @@ class Log(FlaskForm):
 class Update_acc(FlaskForm):
     uname = StringField('Username', validators=[DataRequired(),Length(min=4, max=20)])
     email = EmailField('Email',validators=[DataRequired(), Email()])
-    pic = FileField('Update Profile Picture', validators=[FileAllowed(['jgp','png'])])
+    pic = FileField('Update Profile Picture', validators=[FileAllowed(['jpg','png','jpeg'])])
     submit = SubmitField('Update')
 
     def validate_uname(self,uname):
@@ -42,7 +42,12 @@ class Update_acc(FlaskForm):
                 raise ValidationError('Username already exists')
     
     def validate_email(self,email):
-        if email.data != current_user.username:
+        if email.data != current_user.email:
             email = User.query.filter_by(email=email.data).first()
             if email:
                 raise ValidationError('email already exists')
+            
+class PostForm(FlaskForm):
+    title = StringField('Title',validators=[DataRequired()])
+    content = TextAreaField('Content',validators=[DataRequired()])
+    submit = SubmitField('Post')
