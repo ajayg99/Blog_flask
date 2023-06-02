@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+    {% block content %}
+        <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group pt-3">
+                    <legend class="border-bottom mb-4">Reset Password</legend>
+                    <div class="form-group pt-3">
+                        {{ form.passw.label(class="form-control-label") }}
+                        {% if form.passw.errors %}
+                            {{ form.passw(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.passw.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.passw(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group pt-3">
+                        {{ form.confirm_passw.label(class="form-control-label") }}
+                        {% if form.confirm_passw.errors %}
+                            {{ form.confirm_passw(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.confirm_passw.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirm_passw(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+
+                </fieldset>
+                <div class="form-group pt-3">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+
+            </form>
+        </div>
+
+
+    {% endblock content %}
+
+    

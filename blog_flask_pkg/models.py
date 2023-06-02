@@ -1,8 +1,10 @@
 
 from datetime import datetime
 from blog_flask_pkg import db, login_manager
+import jwt
 from flask_login import UserMixin
 import random
+from flask import current_app
 
 img_id = random.randint(0, 99999)
 
@@ -18,7 +20,27 @@ class User(db.Model, UserMixin):
     passw = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
 
-
+    def get_reset_token(self, expires_sec=1800):
+        reset_token = jwt.encode(
+            {
+                "user_id": self.id
+            },
+            current_app.config['SECRET_KEY'],
+            algorithm="HS256"
+        )
+        return reset_token
+    
+    def verify_reset_token(token):
+        try:
+            user_id = jwt.decode(
+                token,
+                current_app.config['SECRET_KEY'],
+                algorithms=["HS256"]
+            )['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
+    
     def __repr__(self):
         return f"User('{self.username}','{self.email}','{self.img}')"
     
