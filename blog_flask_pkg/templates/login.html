@@ -44,13 +44,13 @@
                     {{ form.submit(class="btn btn-outline-info") }}
                 </div>
                 <small class="text-muted ml-2 pt-3">
-                    <a href="#">Forget Password?</a>
+                    <a href="{{ url_for('users.reset_request') }}">Forgot Password?</a>
                 </small>
             </form>
         </div>
         <div class="border-top">
             <small class="text-muted">
-                Need an Account? <a class="ml-2" href="{{ url_for('Register') }}">Sign up</a>
+                Need an Account? <a class="ml-2" href="{{ url_for('users.Register') }}">Sign up</a>
             </small>
         </div>
 
