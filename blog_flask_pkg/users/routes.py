@@ -17,7 +17,6 @@ def Register():
     
     form = Reg()        #instance of Reg from forms.py
     if form.validate_on_submit():
-        print("success")
         hashed_pw = bcrypt.generate_password_hash(form.passw.data).decode('utf-8') #hashing password
         #pushing data to DB
         user = User(username=form.uname.data, email=form.email.data, passw=hashed_pw) 
