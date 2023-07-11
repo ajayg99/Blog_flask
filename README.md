@@ -6,4 +6,5 @@ cmd:
   docker-compose up
 
 the app will be launched on localhost:5000
+
 ----
