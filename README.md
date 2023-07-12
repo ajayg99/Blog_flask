@@ -1,9 +1,9 @@
 ## About The Project
-
+  I have developed the project with devops integrated in the project. I used gitlabs for CICD and docker-compose for local development/test and deployment on AWS ECS. I followed all the best practices of Devsecops and have implemented in this project.
 
 ----
 
-### Built With
+## Built With
 
 * [![bootstrap][bootstrap.com]][bootstrap-url]
 * [![Python][Python-logo]][Python-url] 
@@ -17,33 +17,35 @@
 
 ----
 
-## Getting Started
+## Demo
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To run the app. just download the docker-compose.yml, db.env and webapp.env
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* docker
   ```sh
-  npm install npm@latest -g
+  https://docs.docker.com/get-docker
   ```
+* docker-compose
+  ```sh
+  https://docs.docker.com/compose/install
+  ```
+  
+### Getting Started
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. populate the .env files with the required credentials
+2. pull and run the docker containers using docker-compose with
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   docker-compose up
    ```
-3. Install NPM packages
+3. to stop the containers
    ```sh
-   npm install
+   docker-compose down
    ```
+----
 
+## Screenshots
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [Python-logo]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
