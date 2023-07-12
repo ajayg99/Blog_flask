@@ -49,6 +49,12 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
 ## Screenshots
 
 ![Image](https://i.imgur.com/mw9bXqQ.png)
+![Image](https://i.imgur.com/a0fi4Vl.png)
+![Image](https://i.imgur.com/hICau9I.png)
+![Image](https://i.imgur.com/d1C4omZ.png)
+![Image](https://i.imgur.com/ffNOFXD.png)
+![Image](https://i.imgur.com/ok0Qzmu.png)
+![Image](https://i.imgur.com/eTpn7nP.png)
 
 
 
