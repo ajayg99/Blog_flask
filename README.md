@@ -2,7 +2,11 @@
   I have developed the project with devops integrated in the project. I used gitlabs for CICD and docker-compose for local development/test and deployment on AWS ECS. I followed all the best practices of Devsecops and have implemented in this project.
 
 ----
+
 ## Architecture
+
+
+----
 
 ## Built With
 
