@@ -47,6 +47,13 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
 ----
 
 ## Screenshots
+
+![Image](https://i.imgur.com/mw9bXqQ.png)
+
+
+
+
+
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [Python-logo]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
