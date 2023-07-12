@@ -48,6 +48,12 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
    ```sh
    docker-compose down
    ```
+
+### Clean up (Note this deletes all the images and containers)
+
+   ```sh
+      docker stop $(docker ps -q) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)
+   ```
 ----
 
 ## Screenshots
