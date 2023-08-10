@@ -1,16 +1,21 @@
 ## About The Project
-  I have developed the project with devops integrated in the project. I used gitlabs for CICD and docker-compose for local development/test and deployment on AWS ECS. I followed all the best practices of Devsecops and have implemented in this project.
 
-----
+The project involved developing a robust and secure blog application using Flask, HTML, CSS, Python, Bootstrap, and PostgreSQL. Key functionalities such as registration, login, post creation, and deletion were implemented, with thorough test cases ensuring quality.
+
+The Infrastructure for the project was defined using terraform HCL.
+
+To enhance development efficiency, a Continuous Integration and Continuous Deployment (CI/CD) pipeline was established. This pipeline automated the testing, building, and deployment of the web app to an ECS cluster. Docker Scout was integrated into the pipeline to scan the image for vulnerabilities before pushing it to the Elastic Container Registry (ECR). Additionally, old images were properly deleted to maintain a clean environment.
+
+The application was deployed as a service utilizing two containers within the ECS cluster. One container hosted the web app, while the other container housed the PostgreSQL database. The web app container had a dependency on the PostgreSQL container, efficiently managed through health checks. This setup ensured seamless functionality of the blog application while maintaining security and scalability.
 
 ## Architecture
 
-
-----
+![Image](https://i.imgur.com/D0b8avi.png)
 
 ## Built With
 
 * [![bootstrap][bootstrap.com]][bootstrap-url]
+* [![Terraform][Terraform-logo]][Terraform-url]
 * [![Python][Python-logo]][Python-url] 
 * [![Docker][Docker-logo]][Docker-url] 
 * [![GitLab][GitLab-logo]][GitLab-url] 
@@ -19,8 +24,6 @@
 * [![HTML][HTML-logo]][HTML-url] 
 * [![CSS][CSS-logo]][CSS-url] 
 * [![Flask][Flask-logo]][Flask-url]
-
-----
 
 ## Demo
 
@@ -49,12 +52,16 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
    docker-compose down
    ```
 
-### Clean up (Note this deletes all the images and containers)
+### Clean up
 
+#### docker image and container
    ```sh
       docker stop $(docker ps -q) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)
    ```
-----
+#### docker volume
+   ```sh
+      docker volume rm $(docker volume ls -q)
+   ```
 
 ## Screenshots
 
@@ -72,6 +79,7 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+
 [Python-logo]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
 
@@ -95,4 +103,8 @@ To run the app. just download the docker-compose.yml, db.env and webapp.env
 
 [Flask-logo]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.pocoo.org/
+
+[Terraform-logo]: https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white
+[Terraform-url]: https://www.terraform.io/
+
 
